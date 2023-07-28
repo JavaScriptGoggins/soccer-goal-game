@@ -3,11 +3,18 @@
     flex-wrap:wrap;
     margin: 0 auto;
     justify-content: center;
+    margin-top: 350px;
 }
 
 #rolling-ball{
         display: flex;
         flex-wrap:wrap;
-        margin: 0 auto;
+        margin-bottom: 125px;
+        justify-content: flex-start;
+        display: none;
+    }
+
+    body{
+        max-height: 800px;
     }
 

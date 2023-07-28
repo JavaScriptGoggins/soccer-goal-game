@@ -1,0 +1,36 @@
+MVP:
+
+-create ability to change from still ball img to rolling ball
+after pressing spacebar
+
+-make the image go straight up the screen
+
+-create zoom element to make rolling ball image appear smaller 
+as it goes up the screen
+
+-create goal that moves back and forth
+
+-create ability for ball to hit the goal and win
+
+-create timer at the top, and score counter
+
+-create sidelines/background
+
+
+
+MAYBES:
+
+-a few different movement patterns/speed to switch after a 
+player hits the shot for the goal
+
+-create ability to have a power bar that is at max at 0.6sec
+and is at lowest after 1 sec, which activates after the player
+times the goal and power bar by pressing spacebar
+-ability for ball to change speed depending on what time 
+spacebar was pressed according to the power bar
+
+-perhaps endless mode with score counter
+
+-perhaps main menu
+
+
