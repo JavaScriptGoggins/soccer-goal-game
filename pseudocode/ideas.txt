@@ -1,22 +1,28 @@
 MVP:
 
+-make ui, surroundings to take up white space etc. 
+
 -create ability to change from still ball img to rolling ball
 after pressing spacebar
 
 -make the image go straight up the screen
+
+-after it hits top of screen/goal, ball needs to reset
+on the bottom
 
 -create zoom element to make rolling ball image appear smaller 
 as it goes up the screen
 
 -create goal that moves back and forth
 
--create ability for ball to hit the goal and win
+-create ability for ball to hit the goal and win!/miss and lose
+(if more time- ball will reduce score counter/miss does nothing)
 
 -create timer at the top, and score counter
 
 -create sidelines/background
 
-
+--make auto scroll function to follow ball on taller browser body
 
 MAYBES:
 
