@@ -1,6 +1,6 @@
 #still-ball{
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap:nowrap;
     margin: 0 auto;
     justify-content: center;
     margin-top: 350px;
@@ -16,5 +16,11 @@
 
     body{
         max-height: 800px;
+    }
+
+    #goal{
+        display: flex;
+        margin-bottom: 500px;
+        position: relative;
     }
 
