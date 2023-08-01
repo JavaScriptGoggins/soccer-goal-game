@@ -1,5 +1,5 @@
 // creating ability to add images
-
+ 
 function newImage(url){
     let image = document.createElement('img')
     image.src = url
@@ -71,7 +71,7 @@ function soccerBall(x, y) {
             element.src = `pics/still-ball-small.png`
         }
         if (direction === 'north') {
-            element.src = `pics/rolling-ball-small.gif`
+            element.src = `pics/rolling-ball-final.gif`
         }
     }
     move(element).kickBall(x, y, changeDirection)
@@ -127,7 +127,7 @@ function move(element) {
         })
         
         document.addEventListener('keyup', function(e){
-            direction = null
+            direction = 'north'
             callback(direction)
         })
     }
