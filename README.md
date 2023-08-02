@@ -1,5 +1,5 @@
 # soccer-goal-game
-This is a futuristic style soccer game:
+This is a simple soccer game:
 
  Objective - Meet the quota of goals before time runs out.
 

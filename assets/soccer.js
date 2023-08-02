@@ -10,7 +10,7 @@ function newImage(url){
 
 // making the goal and ball
     function soccerGoal(x, y) {
-        let element = newImage('pics/soccer-goal-asset-temp.png')
+        let element = newImage('assets/pics/actual-soccer-goal.png')
         element.style.zIndex = 1;
         let direction = null;
 
@@ -29,14 +29,14 @@ function newImage(url){
 
         async function moveEast(time) {
             direction = 'east'
-            element.src = `pics/soccer-goal-asset-temp.png`
+            element.src = `pics/actual-soccer-goal.png`
 
             await sleep(time);
             stop()
         }
         async function moveWest(time) {
             direction = 'west'
-            element.src = `pics/soccer-goal-asset-temp.png`
+            element.src = `pics/actual-soccer-goal.png`
     
             await sleep(time);
             stop()
@@ -44,7 +44,7 @@ function newImage(url){
         // declaring stop function
         function stop() {
             direction = null
-            element.src = `pics/soccer-goal-asset-temp.png`
+            element.src = `pics/actual-soccer-goal.png`
         }
         // declaring sleep function
         function sleep(time){
@@ -63,15 +63,15 @@ function newImage(url){
     }
 
 function soccerBall(x, y) {
-    const element = newImage('pics/still-ball-small.png')
+    const element = newImage('pics/final-stiller.png')
     element.style.zIndex = 2;
 
     function changeDirection(direction) {
         if (direction === null) {
-            element.src = `pics/still-ball-small.png`
+            element.src = `pics/final-stiller.png`
         }
         if (direction === 'north') {
-            element.src = `pics/rolling-ball-final.gif`
+            element.src = `pics/final-roller2.gif`
         }
     }
     move(element).kickBall(x, y, changeDirection)
@@ -141,4 +141,36 @@ function move(element) {
 // placing the goal and the ball
 const ball = soccerBall(375, -200)
 
-const goal = soccerGoal(500, 375) 
+const goal = soccerGoal(500, 410) 
+
+// making soccergoal move
+
+async function goalPath(){
+    while(true) {
+        try{
+            await goal.moveEast(2200)
+            await goal.moveWest(4400)
+            await goal.moveEast(1000)
+            await goal.moveWest(1000)
+            await goal.moveEast(1500)
+            await goal.moveWest(1500)
+            await goal.moveEast(4400)
+            await goal.moveWest(4400)
+            await goal.moveEast(1200)
+            await goal.moveWest(1200)
+            await goal.moveEast(1700)
+            await goal.moveWest(1700)
+            await goal.moveEast(4400)
+            await goal.moveWest(1200)
+            await goal.moveEast(1200)
+            await goal.moveWest(1700)
+            await goal.moveEast(1700)
+            await goal.moveWest(2200)
+        } catch(e){
+            console.log("error moving goal" + e.message);
+            break;
+          }
+    }
+}
+
+goalPath()

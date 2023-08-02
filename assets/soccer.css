@@ -24,3 +24,13 @@
         position: relative;
     }
 
+    .background-image2 {
+    position: fixed;
+    bottom: 100;
+    left: 500;
+    }
+
+    .background-image1 {
+        position: relative;
+    }
+
