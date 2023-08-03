@@ -10,7 +10,7 @@ function newImage(url){
 
 // making the goal and ball
     function soccerGoal(x, y) {
-        let element = newImage('assets/pics/actual-soccer-goal.png')
+        let element = newImage('pics/goaltry6.png')
         element.style.zIndex = 1;
         let direction = null;
 
@@ -29,14 +29,14 @@ function newImage(url){
 
         async function moveEast(time) {
             direction = 'east'
-            element.src = `pics/actual-soccer-goal.png`
+            element.src = `pics/goaltry6.png`
 
             await sleep(time);
             stop()
         }
         async function moveWest(time) {
             direction = 'west'
-            element.src = `pics/actual-soccer-goal.png`
+            element.src = `pics/goaltry6.png`
     
             await sleep(time);
             stop()
@@ -44,7 +44,7 @@ function newImage(url){
         // declaring stop function
         function stop() {
             direction = null
-            element.src = `pics/actual-soccer-goal.png`
+            element.src = `pics/goaltry6.png`
         }
         // declaring sleep function
         function sleep(time){
@@ -63,21 +63,23 @@ function newImage(url){
     }
 
 function soccerBall(x, y) {
-    const element = newImage('pics/final-stiller.png')
+    const element = newImage('pics/mediumballtry5.png')
     element.style.zIndex = 2;
+    const startPosition = { x: x, y: y};
 
     function changeDirection(direction) {
         if (direction === null) {
-            element.src = `pics/final-stiller.png`
+            element.src = `pics/mediumballtry5.png`
         }
         if (direction === 'north') {
-            element.src = `pics/final-roller2.gif`
+            element.src = `pics/rollballfinal.gif`
         }
     }
     move(element).kickBall(x, y, changeDirection)
 
     return {
-        element: element
+        element: element,
+        startPosition: startPosition
     }
 }
 
@@ -174,3 +176,21 @@ async function goalPath(){
 }
 
 goalPath()
+
+// adding collision for the soccer ball and goal
+
+function checkCollision(ball, goal){
+    const circ = ball.getBoundingClientRect();
+    const rect = goal.getBoundingClientRect();
+
+    return !(ball.right < goal.left || 
+        ball.left > goal.right || 
+        ball.bottom < goal.top || 
+        ball.top > goal.bottom);
+}
+
+
+// run update function when ball collides with goal, update function will add 1 score to score, and reset the ball at the starting position. 
+
+// else if ball doesnt collide with goal for a few seconds, lose function will activate which will display "you lose",+ the current score,
+//  reset the score, ball, and goal

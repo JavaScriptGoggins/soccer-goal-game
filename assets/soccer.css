@@ -16,6 +16,7 @@
 
     body{
         max-height: 800px;
+        background-image: url('pics/grassfield1.webp');
     }
 
     #goal{
@@ -24,13 +25,11 @@
         position: relative;
     }
 
-    .background-image2 {
-    position: fixed;
-    bottom: 100;
-    left: 500;
+   
+
+    .soccerField{
+        margin-left: 420px;
     }
 
-    .background-image1 {
-        position: relative;
-    }
+
 
