@@ -1,5 +1,8 @@
 // creating ability to add images
- 
+let score = 0;
+
+
+
 function newImage(url){
     let image = document.createElement('img')
     image.src = url
@@ -10,7 +13,7 @@ function newImage(url){
 
 // making the goal and ball
     function soccerGoal(x, y) {
-        let element = newImage('pics/goaltry6.png')
+        let element = newImage('pics/goaltry7.png')
         element.style.zIndex = 1;
         let direction = null;
 
@@ -29,14 +32,14 @@ function newImage(url){
 
         async function moveEast(time) {
             direction = 'east'
-            element.src = `pics/goaltry6.png`
+            element.src = `pics/goaltry7.png`
 
             await sleep(time);
             stop()
         }
         async function moveWest(time) {
             direction = 'west'
-            element.src = `pics/goaltry6.png`
+            element.src = `pics/goaltry7.png`
     
             await sleep(time);
             stop()
@@ -44,7 +47,7 @@ function newImage(url){
         // declaring stop function
         function stop() {
             direction = null
-            element.src = `pics/goaltry6.png`
+            element.src = `pics/goaltry7.png`
         }
         // declaring sleep function
         function sleep(time){
@@ -65,7 +68,7 @@ function newImage(url){
 function soccerBall(x, y) {
     const element = newImage('pics/mediumballtry5.png')
     element.style.zIndex = 2;
-    const startPosition = { x: x, y: y};
+    const startPosition = { x: 375, y: -200};
 
     function changeDirection(direction) {
         if (direction === null) {
@@ -143,7 +146,7 @@ function move(element) {
 // placing the goal and the ball
 const ball = soccerBall(375, -200)
 
-const goal = soccerGoal(500, 410) 
+const goal = soccerGoal(650, 650) 
 
 // making soccergoal move
 
@@ -168,6 +171,8 @@ async function goalPath(){
             await goal.moveWest(1700)
             await goal.moveEast(1700)
             await goal.moveWest(2200)
+
+            
         } catch(e){
             console.log("error moving goal" + e.message);
             break;
@@ -176,21 +181,66 @@ async function goalPath(){
 }
 
 goalPath()
+setInterval(collide, 100)
+
+
+
+function collide() {
+    if (checkCollision(ball.element, goal.element)) {
+        ball.element.style.left = ball.startPosition.x + 'px'
+        ball.element.style.bottom = ball.startPosition.y + 'px'
+
+        updateScore();
+
+        console.log('test')
+
+        ball.changeDirection(null)
+    } 
+
+
+
+
+} 
+    
+
+
 
 // adding collision for the soccer ball and goal
 
-function checkCollision(ball, goal){
-    const circ = ball.getBoundingClientRect();
-    const rect = goal.getBoundingClientRect();
+function checkCollision(soccerBall, soccerGoal){
+    const ball = soccerBall.getBoundingClientRect();
+    const goal = soccerGoal.getBoundingClientRect();
 
-    return !(ball.right < goal.left || 
-        ball.left > goal.right || 
-        ball.bottom < goal.top || 
-        ball.top > goal.bottom);
+    return (ball.top +130 < goal.bottom &&
+            ball.right -130 > goal.left &&
+            ball.left +130 < goal.right
+            );
+
+        
+        
 }
+
+
+
+function updateScore(){
+    score += 1;
+    
+    const scoreElement = document.getElementById('score');
+    scoreElement.textContent - 'Score: ' + score;
+
+    console.log(score)
+}
+
+
+const scoreElement = document.getElementById('score')
+scoreElement.textContent = 'Score: ' + score;
 
 
 // run update function when ball collides with goal, update function will add 1 score to score, and reset the ball at the starting position. 
 
 // else if ball doesnt collide with goal for a few seconds, lose function will activate which will display "you lose",+ the current score,
 //  reset the score, ball, and goal
+
+
+// make sure center of ball value is less than y value of goal, and x value of bottom center 
+

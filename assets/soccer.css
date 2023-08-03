@@ -25,11 +25,24 @@
         position: relative;
     }
 
+    #scoreCount{
+        font-size: larger;
+        color: white;
+    }
    
 
     .soccerField{
         margin-left: 420px;
     }
 
+    #score {
+        position: fixed;
+        top: 50%;
+        left: 50px;
+        transform: translateY(-50%);
+        font-size: 20px;  
+        color: white;  
+        font-family: Snell Roundhand, cursive;
+    }
 
 
