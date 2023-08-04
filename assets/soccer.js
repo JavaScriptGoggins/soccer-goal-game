@@ -1,8 +1,6 @@
 // creating ability to add images
 let score = 0;
 
-
-
 function newImage(url){
     let image = document.createElement('img')
     image.src = url
@@ -144,7 +142,7 @@ function move(element) {
 }
 
 // placing the goal and the ball
-let ball = soccerBall(500, 50)
+let ball = soccerBall(600, 40)
 
 const goal = soccerGoal(650, 650) 
 
@@ -185,7 +183,7 @@ setInterval(collide, 100)
 function collide() {
     if (checkCollision(ball.element, goal.element) == "goal") {
        ball.element.remove()
-       ball = soccerBall(500, 50)
+       ball = soccerBall(600, 40)
 
 
         updateScore();
@@ -194,10 +192,9 @@ function collide() {
 
     } else if(checkCollision(ball.element, goal.element) == "miss"){
         ball.element.remove()
-        ball = soccerBall(500, 50)
+        ball = soccerBall(600, 40)
         resetScore()
     }
-
 } 
     
 // adding collision for the soccer ball and goal
@@ -212,7 +209,6 @@ function checkCollision(soccerBall, soccerGoal){
             ){return "goal"}
             else if(ball.bottom < goal.top)
             {return "miss"}
-
             return false
              
 }
@@ -235,15 +231,10 @@ function resetScore(){
     console.log(score)
 }
 
-
 const scoreElement = document.getElementById('score')
 scoreElement.textContent = 'Score: ' + score;
 
 // run update function when ball collides with goal, update function will add 1 score to score, and reset the ball at the starting position. 
-
 // else if ball doesnt collide with goal for a few seconds, lose function will activate which will display "you lose",+ the current score,
 //  reset the score, ball, and goal
-
-
 // make sure center of ball value is less than y value of goal, and x value of bottom center 
-

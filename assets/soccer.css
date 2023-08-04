@@ -1,28 +1,14 @@
-#still-ball{
-    display: flex;
-    flex-wrap:nowrap;
-    margin: 0 auto;
-    justify-content: center;
-    margin-top: 350px;
-}
-
-/* #rolling-ball{
+    #still-ball{
         display: flex;
-        flex-wrap:wrap;
-        margin-bottom: 125px;
-        justify-content: flex-start;
-        display: none;
-    } */
+        flex-wrap:nowrap;
+        margin: 0 auto;
+        justify-content: center;
+        margin-top: 350px;
+    }      
 
     body{
         max-height: 800px;
         background-image: url('pics/grassfield1.webp');
-    }
-
-    #goal{
-        display: flex;
-        margin-bottom: 500px;
-        position: relative;
     }
 
     #scoreCount{
@@ -30,7 +16,6 @@
         color: white;
     }
    
-
     .soccerField{
         margin-left: 420px;
     }
@@ -44,5 +29,3 @@
         color: white;  
         font-family: Snell Roundhand, cursive;
     }
-
-
