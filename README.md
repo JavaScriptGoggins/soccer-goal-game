@@ -1,4 +1,5 @@
 # soccer-goal-game
+
   This is a simple soccer game:
 
 
@@ -19,7 +20,6 @@
   -Sometimes the goal runs slowly when you first open the game, wait until it runs quickly then refresh the page to ensure the goal path is correct
 
 
-
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
   
   My orignial idea was to create a futuristic soccer game with a bright green ball, and colorful/futuristic ai.
@@ -33,7 +33,7 @@ extremely difficult task. It makes me feel like I can learn anything that has to
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-citations: 
+citations-
 
 ball: https://www.gifcen.com/rolling-football-ball-gif/
 

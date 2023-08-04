@@ -1,12 +1,4 @@
-    #still-ball{
-        display: flex;
-        flex-wrap:nowrap;
-        margin: 0 auto;
-        justify-content: center;
-        margin-top: 350px;
-    }      
-
-    body{
+     body{
         max-height: 800px;
         background-image: url('pics/grassfield1.webp');
     }

@@ -92,8 +92,6 @@ function move(element) {
         element.style.bottom = bottom + 'px'
     }
 
-    
-
     function kickBall(left, bottom, callback){
         let direction = null;
         let x = left;
@@ -120,7 +118,6 @@ function move(element) {
         setInterval(moveAllObjects, 1)
 
         // creating controls, one odd thing is that any key works, not just arrow up. 
-        
         document.addEventListener('keydown', function(e){
             if(e.repeat) return;
         
@@ -143,13 +140,11 @@ function move(element) {
 }
 
 // placing the goal and the ball
-
 let ball = soccerBall(600, 40)
 
 const goal = soccerGoal(650, 650) 
 
 // making soccergoal move
-
 async function goalPath(){
     while(true) {
         try{
@@ -185,7 +180,6 @@ goalPath()
 setInterval(collide, 100)
 
 // adding collision for the soccer ball and goal
-
 function checkCollision(soccerBall, soccerGoal){
     const ball = soccerBall.getBoundingClientRect();
     const goal = soccerGoal.getBoundingClientRect();
@@ -215,7 +209,6 @@ function collide() {
 } 
 
 // adds 1 to score
-
 function updateScore(){
     score += 1;
     
@@ -224,7 +217,6 @@ function updateScore(){
 }
 
 // sets score back to 0
-
 function resetScore(){
     score = 0;
     
