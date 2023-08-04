@@ -93,6 +93,8 @@ function move(element) {
         element.style.bottom = bottom + 'px'
     }
 
+    
+
     function kickBall(left, bottom, callback){
         let direction = null;
         let x = left;
@@ -111,14 +113,14 @@ function move(element) {
             if(direction === 'east'){
                 x+=1
             }
-            if(direction === 'south'){
-                y-=1
-            }
+    
             element.style.left = x + 'px'
             element.style.bottom = y + 'px'
         }
         
         setInterval(moveAllObjects, 1)
+
+        // creating controls, one odd thing is that any key works, not just arrow up. 
         
         document.addEventListener('keydown', function(e){
             if(e.repeat) return;
@@ -179,25 +181,10 @@ async function goalPath(){
 }
 
 goalPath()
+
+// checks for collision every 100ms
 setInterval(collide, 100)
 
-function collide() {
-    if (checkCollision(ball.element, goal.element) == "goal") {
-       ball.element.remove()
-       ball = soccerBall(600, 40)
-
-
-        updateScore();
-
-        console.log('test')
-
-    } else if(checkCollision(ball.element, goal.element) == "miss"){
-        ball.element.remove()
-        ball = soccerBall(600, 40)
-        resetScore()
-    }
-} 
-    
 // adding collision for the soccer ball and goal
 
 function checkCollision(soccerBall, soccerGoal){
@@ -205,14 +192,31 @@ function checkCollision(soccerBall, soccerGoal){
     const goal = soccerGoal.getBoundingClientRect();
 
     if (ball.top < goal.bottom &&
-            ball.right > goal.left &&
-            ball.left < goal.right 
-            ){return "goal"}
+        ball.right > goal.left &&
+        ball.left < goal.right 
+        ){return "goal"}
             else if(ball.bottom < goal.top)
             {return "miss"}
-            return false
+
+        return false
              
 }
+
+function collide() {
+    if (checkCollision(ball.element, goal.element) == "goal") {
+       ball.element.remove()
+       ball = soccerBall(600, 40)
+
+        updateScore();
+
+    } else if(checkCollision(ball.element, goal.element) == "miss"){
+        ball.element.remove()
+        ball = soccerBall(600, 40)
+        resetScore()
+    }
+} 
+
+// adds 1 to score
 
 function updateScore(){
     score += 1;
@@ -220,8 +224,9 @@ function updateScore(){
     const scoreElement = document.getElementById('score');
     scoreElement.textContent = 'Score: ' + score;
 
-    console.log(score)
 }
+
+// sets score back to 0
 
 function resetScore(){
     score = 0;
@@ -229,13 +234,5 @@ function resetScore(){
     const scoreElement = document.getElementById('score');
     scoreElement.textContent = 'Score: ' + score;
 
-    console.log(score)
 }
 
-const scoreElement = document.getElementById('score')
-scoreElement.textContent = 'Score: ' + score;
-
-// run update function when ball collides with goal, update function will add 1 score to score, and reset the ball at the starting position. 
-// else if ball doesnt collide with goal for a few seconds, lose function will activate which will display "you lose",+ the current score,
-//  reset the score, ball, and goal
-// make sure center of ball value is less than y value of goal, and x value of bottom center 
