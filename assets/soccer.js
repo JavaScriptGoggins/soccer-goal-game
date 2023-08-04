@@ -66,16 +66,16 @@ function newImage(url){
     }
 
 function soccerBall(x, y) {
-    const element = newImage('pics/mediumballtry5.png')
+    const element = newImage('pics/croppedstillball.png')
     element.style.zIndex = 2;
     const startPosition = { x: 375, y: -200};
 
     function changeDirection(direction) {
         if (direction === null) {
-            element.src = `pics/mediumballtry5.png`
+            element.src = `pics/croppedstillball.png`
         }
         if (direction === 'north') {
-            element.src = `pics/rollballfinal.gif`
+            element.src = `pics/Cropped_Ball.gif`
         }
     }
     move(element).kickBall(x, y, changeDirection)
@@ -144,7 +144,7 @@ function move(element) {
 }
 
 // placing the goal and the ball
-const ball = soccerBall(375, -200)
+let ball = soccerBall(500, 50)
 
 const goal = soccerGoal(650, 650) 
 
@@ -172,7 +172,6 @@ async function goalPath(){
             await goal.moveEast(1700)
             await goal.moveWest(2200)
 
-            
         } catch(e){
             console.log("error moving goal" + e.message);
             break;
@@ -183,50 +182,55 @@ async function goalPath(){
 goalPath()
 setInterval(collide, 100)
 
-
-
 function collide() {
-    if (checkCollision(ball.element, goal.element)) {
-        ball.element.style.left = ball.startPosition.x + 'px'
-        ball.element.style.bottom = ball.startPosition.y + 'px'
+    if (checkCollision(ball.element, goal.element) == "goal") {
+       ball.element.remove()
+       ball = soccerBall(500, 50)
+
 
         updateScore();
 
         console.log('test')
 
-        ball.changeDirection(null)
-    } 
-
-
-
+    } else if(checkCollision(ball.element, goal.element) == "miss"){
+        ball.element.remove()
+        ball = soccerBall(500, 50)
+        resetScore()
+    }
 
 } 
     
-
-
-
 // adding collision for the soccer ball and goal
 
 function checkCollision(soccerBall, soccerGoal){
     const ball = soccerBall.getBoundingClientRect();
     const goal = soccerGoal.getBoundingClientRect();
 
-    return (ball.top +130 < goal.bottom &&
-            ball.right -130 > goal.left &&
-            ball.left +130 < goal.right
-            );
+    if (ball.top < goal.bottom &&
+            ball.right > goal.left &&
+            ball.left < goal.right 
+            ){return "goal"}
+            else if(ball.bottom < goal.top)
+            {return "miss"}
 
-        
-        
+            return false
+             
 }
-
-
 
 function updateScore(){
     score += 1;
     
     const scoreElement = document.getElementById('score');
-    scoreElement.textContent - 'Score: ' + score;
+    scoreElement.textContent = 'Score: ' + score;
+
+    console.log(score)
+}
+
+function resetScore(){
+    score = 0;
+    
+    const scoreElement = document.getElementById('score');
+    scoreElement.textContent = 'Score: ' + score;
 
     console.log(score)
 }
@@ -234,7 +238,6 @@ function updateScore(){
 
 const scoreElement = document.getElementById('score')
 scoreElement.textContent = 'Score: ' + score;
-
 
 // run update function when ball collides with goal, update function will add 1 score to score, and reset the ball at the starting position. 
 
