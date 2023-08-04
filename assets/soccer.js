@@ -142,6 +142,7 @@ function move(element) {
 }
 
 // placing the goal and the ball
+
 let ball = soccerBall(600, 40)
 
 const goal = soccerGoal(650, 650) 

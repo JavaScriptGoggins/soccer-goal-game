@@ -1,14 +1,16 @@
 # soccer-goal-game
-This is a simple soccer game:
+  This is a simple soccer game:
 
- Objective - Meet the quota of goals before time runs out.
+  Objective - Score as many goals as you can without missing.
 
- Instructions: 
+  Instructions: 
 
-  There is a score counter at the top that represents the amount of goals you need to score before time runs out.
+  -If the ball touches the goal at any point it counts as a score.
+
+  -There is a score counter on the left that represents the amount of goals you have scored
+
+  -If you miss your score is set to 0 and you lose. 
  
-  Time the goal as it moves back in forth, watch the power bar to decide when is the best time to kick the ball! Press space to kick. 
-
-  Keep the timer in mind!
-
-  There is a score counter at the top that represents the amount of goals you need to score before time runs out.
+  -Press the up arrow key to kick
+  
+  -Time the goal as it moves back in forth, watch and wait to kick the ball.
