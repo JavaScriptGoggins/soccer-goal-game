@@ -60,7 +60,6 @@ function newImage(url){
             moveEast: moveEast,
             stop: stop
         }
-
     }
 
 function soccerBall(x, y) {
@@ -113,7 +112,7 @@ function move(element) {
             if(direction === 'east'){
                 x+=1
             }
-    
+
             element.style.left = x + 'px'
             element.style.bottom = y + 'px'
         }
@@ -199,7 +198,6 @@ function checkCollision(soccerBall, soccerGoal){
             {return "miss"}
 
         return false
-             
 }
 
 function collide() {
@@ -223,7 +221,6 @@ function updateScore(){
     
     const scoreElement = document.getElementById('score');
     scoreElement.textContent = 'Score: ' + score;
-
 }
 
 // sets score back to 0
@@ -233,6 +230,4 @@ function resetScore(){
     
     const scoreElement = document.getElementById('score');
     scoreElement.textContent = 'Score: ' + score;
-
 }
-
