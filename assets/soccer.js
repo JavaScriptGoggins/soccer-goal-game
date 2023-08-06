@@ -1,5 +1,5 @@
 // creating ability to add images
-let score = 0;
+
 
 function newImage(url){
     let image = document.createElement('img')
@@ -117,7 +117,7 @@ function move(element) {
         
         setInterval(moveAllObjects, 1)
 
-        // creating controls, one odd thing is that any key works, not just arrow up. 
+        // creating controls
         document.addEventListener('keydown', function(e){
             if(e.repeat) return;
         
@@ -207,6 +207,8 @@ function collide() {
         resetScore()
     }
 } 
+
+let score = 0;
 
 // adds 1 to score
 function updateScore(){

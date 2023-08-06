@@ -7,7 +7,7 @@
 
   Instructions: 
 
-  -Press the up arrow key/any key to kick
+  -Press the up arrow key to kick
 
   -If the ball touches the goal it's a score
 
